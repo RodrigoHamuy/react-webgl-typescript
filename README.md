@@ -2,6 +2,10 @@ React-WebGL-Typescript
 =
 A React-Typescript-WebGL boilerplate.
 
+Install
+==
+`npm install`
+
 Run
 ==
 `npm start`
