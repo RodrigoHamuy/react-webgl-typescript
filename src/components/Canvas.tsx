@@ -21,9 +21,9 @@ class Canvas extends React.Component {
 
   componentDidMount() {
 
-    this.initGL();
-    this.shader = new Shader( this.gl, this.canvas );
+    this.gl = this.canvas.getContext('webgl') as WebGLRenderingContext;
     
+    this.shader = new Shader( this.gl, this.canvas );    
     this.triangle = new Triangle( this.gl, this.shader );
     this.square = new Square( this.gl, this.shader );
 
@@ -46,14 +46,6 @@ class Canvas extends React.Component {
     
     this.triangle.draw();
     this.square.draw();
-
-  }
-
-  initGL() {
-
-    this.gl = this.canvas.getContext('webgl') as WebGLRenderingContext;
-    this.gl.clearColor(0, 0, 0, 1);
-    this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 
   }
 
