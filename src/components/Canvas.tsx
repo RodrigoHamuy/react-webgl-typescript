@@ -43,9 +43,15 @@ class Canvas extends React.Component {
 
     gl.clear( gl.COLOR_BUFFER_BIT );
     gl.clear( gl.DEPTH_BUFFER_BIT );
+
+    this.triangle.pos.x += 0.01;
     
     this.triangle.draw();
     this.square.draw();
+
+    window.requestAnimationFrame( () => {
+      this.drawScene();
+    } );
 
   }
 

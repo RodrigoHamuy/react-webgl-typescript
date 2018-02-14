@@ -2,6 +2,12 @@ import { VertexBufferObject } from './VertexBufferObject';
 import { Shader } from './Shader';
 
 export class Triangle {
+
+  pos = {
+    x: -1.5,
+    y: 0,
+    z: -7
+  };
   
   private gl: WebGLRenderingContext;
   private shader: Shader;
@@ -28,7 +34,7 @@ export class Triangle {
   draw() {
     
     this.vbo.bind();
-    this.shader.setPosition( [-1.5, 0.0, -7.0] );
+    this.shader.setPosition( [this.pos.x, this.pos.y, this.pos.z] );
     this.gl.drawArrays(this.gl.TRIANGLES, 0, 3);
 
   }
