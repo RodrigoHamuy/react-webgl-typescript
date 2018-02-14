@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Shader } from './Shader';
 import { Triangle } from './Triangle';
 import { Square } from './Square';
+import { Slider } from './Slider';
 
 class Canvas extends React.Component {
   
@@ -58,11 +59,14 @@ class Canvas extends React.Component {
   render() {
 
     return (
-      <canvas
-        width={640}
-        height={425}
-        ref={canvas => this.canvas = canvas as HTMLCanvasElement}
-      />
+      <div>
+        <canvas
+          width={640}
+          height={425}
+          ref={canvas => this.canvas = canvas as HTMLCanvasElement}
+        />
+        <Slider />
+      </div>
     );
 
   }
