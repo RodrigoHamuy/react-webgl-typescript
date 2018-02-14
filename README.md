@@ -1,9 +1,6 @@
 # React-WebGL-Typescript
 A React-Typescript-WebGL boilerplate.
 
-## Dependencies
-`npm i -g typescript`
-
 ## Install
 `npm install`
 
