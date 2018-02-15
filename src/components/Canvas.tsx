@@ -14,6 +14,10 @@ class Canvas extends React.Component {
   triangle: Triangle;
   square: Square;
 
+  state = {
+    trianglePos: 0
+  };
+
   constructor(props: {}) {
 
     super(props);
@@ -45,7 +49,7 @@ class Canvas extends React.Component {
     gl.clear( gl.COLOR_BUFFER_BIT );
     gl.clear( gl.DEPTH_BUFFER_BIT );
 
-    this.triangle.pos.x += 0.01;
+    this.triangle.pos.x = this.state.trianglePos * 0.1;
     
     this.triangle.draw();
     this.square.draw();
@@ -56,7 +60,15 @@ class Canvas extends React.Component {
 
   }
 
+  onSliderChange(val: Number) {
+    this.setState({
+      trianglePos: val
+    });
+  }
+
   render() {
+
+    let myFunc = this.onSliderChange.bind(this);
 
     return (
       <div>
@@ -65,7 +77,7 @@ class Canvas extends React.Component {
           height={425}
           ref={canvas => this.canvas = canvas as HTMLCanvasElement}
         />
-        <Slider />
+        <Slider onSliderChange={myFunc}/>
       </div>
     );
 
